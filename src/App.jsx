@@ -1,9 +1,10 @@
 import React from 'react';
 import {puppyList} from './data.js';
+import {useState} from  'react';
 
 function App() {
-  console.log(puppyList);
-
+  const [puppies, setPuppies] = useState(puppyList)
+  console.log(puppies);
   return (
     <>
       <div>
