@@ -1,6 +1,7 @@
 import React from 'react';
 import {puppyList} from './data.js';
 import {useState} from  'react';
+import './App.css'
 
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
           </ul>
         </div>
       )}
-      
+
        {
         puppies.map((puppy) => {
           return <p onClick={()=>{setFeatPupId(puppy.id)}} key={puppy.id}>{puppy.name}</p>
