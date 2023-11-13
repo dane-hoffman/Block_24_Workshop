@@ -8,7 +8,11 @@ function App() {
   return (
     <>
       <div>
-       
+       {
+        puppies.map((puppy) => {
+          return <p>{puppy.name}</p>
+        })
+       }
       </div>
     </>
   )
