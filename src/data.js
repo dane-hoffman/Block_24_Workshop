@@ -1,4 +1,10 @@
+const getImage = async () => {
+    const puppyImageAPICall = await fetch("https://dog.ceo/api/breeds/image/random");
+    console.log(puppyImageAPICall);
+      };
+
 export const puppyList = [
+    
     {
       id: 1,
       name: "Sir Waggington",
@@ -10,7 +16,7 @@ export const puppyList = [
         { id: 2, title: "Lay Down" },
         { id: 3, title: "Jump through flaming hoop" },
       ],
-      img: "https://random.dog/00b417af-0b5f-42d7-9ad0-6aab6c3db491.jpg",
+      img: getImage(),
     },
     {
       id: 2,
@@ -20,6 +26,7 @@ export const puppyList = [
       age: 6,
       ownerId: 1,
       tricks: [],
+      img: 0,
     },
     {
       id: 3,
@@ -67,3 +74,6 @@ export const puppyList = [
       tricks: [],
     },
   ];
+
+
+
