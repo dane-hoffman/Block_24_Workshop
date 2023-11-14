@@ -1,6 +1,9 @@
-const getImage = async () => {
+export const getImage = async (img) => {
     const puppyImageAPICall = await fetch("https://dog.ceo/api/breeds/image/random");
-    console.log(puppyImageAPICall);
+    const puppyImage = puppyImageAPICall.json();
+    //let img = puppyImage.url;
+    console.log(puppyImage);
+
       };
 
 export const puppyList = [
@@ -16,7 +19,6 @@ export const puppyList = [
         { id: 2, title: "Lay Down" },
         { id: 3, title: "Jump through flaming hoop" },
       ],
-      img: getImage(),
     },
     {
       id: 2,
@@ -26,7 +28,7 @@ export const puppyList = [
       age: 6,
       ownerId: 1,
       tricks: [],
-      img: 0,
+      img: getImage(),
     },
     {
       id: 3,

@@ -7,9 +7,9 @@ import './App.css'
 function App() {
   const [puppies, setPuppies] = useState(puppyList)
   const [featPupId, setFeatPupId] = useState(null)
-  console.log("puppyList:", puppyList);
+//console.log("puppyList:", puppyList);
   const featuredPup = puppies.find((pup)=> pup.id === featPupId)
-  console.log(featuredPup);
+  //console.log(featuredPup);
   return (
     <>
       <div>
