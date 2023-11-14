@@ -19,6 +19,7 @@ function App() {
           <ul>
             <li>Age: {featuredPup.age}</li>
             <li>Email: {featuredPup.email}</li>
+            <li>Picture:<img src={featuredPup.img} /></li>
           </ul>
         </div>
       )}

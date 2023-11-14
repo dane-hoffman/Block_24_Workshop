@@ -10,6 +10,7 @@ export const puppyList = [
         { id: 2, title: "Lay Down" },
         { id: 3, title: "Jump through flaming hoop" },
       ],
+      img: "https://random.dog/00b417af-0b5f-42d7-9ad0-6aab6c3db491.jpg",
     },
     {
       id: 2,
