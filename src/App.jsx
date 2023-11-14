@@ -6,6 +6,7 @@ import './App.css';
 function App() {
   const [puppies, setPuppies] = useState(puppyList);
   const [featPupId, setFeatPupId] = useState(null);
+  const [selectedPuppy, setSelectedPuppy] = useState(null);
 
   useEffect(() => {
     const updatePuppyImage = async (puppyId) => {
@@ -24,29 +25,38 @@ function App() {
     puppies.forEach((puppy) => {
       updatePuppyImage(puppy.id);
     });
-  },);
+  }, []); // Empty dependency array to run once when the component mounts
 
-  const featuredPup = puppies.find((pup) => pup.id === featPupId);
+  const handlePuppyClick = (puppyId) => {
+    setFeatPupId(puppyId);
+    setSelectedPuppy(puppies.find((pup) => pup.id === puppyId));
+  };
+
+  const handleBackClick = () => {
+    setFeatPupId(null);
+    setSelectedPuppy(null);
+  };
 
   return (
     <>
       <div>
-        {featPupId && (
+        {selectedPuppy ? (
           <div>
-            <h2>{featuredPup.name}</h2>
+            <h2>{selectedPuppy.name}</h2>
             <ul>
-              <li>Age: {featuredPup.age}</li>
-              <li>Email: {featuredPup.email}</li>
-              <li>Picture:<img src={featuredPup.img} alt={featuredPup.name} /></li>
+              <li>Age: {selectedPuppy.age}</li>
+              <li>Email: {selectedPuppy.email}</li>
+              <li>Picture:<img src={selectedPuppy.img} alt={selectedPuppy.name} /></li>
             </ul>
+            <button onClick={handleBackClick}>Back</button>
           </div>
+        ) : (
+          puppies.map((puppy) => (
+            <p onClick={() => handlePuppyClick(puppy.id)} key={puppy.id}>
+              {puppy.name}
+            </p>
+          ))
         )}
-
-        {puppies.map((puppy) => (
-          <p onClick={() => setFeatPupId(puppy.id)} key={puppy.id}>
-            {puppy.name}
-          </p>
-        ))}
       </div>
     </>
   );
