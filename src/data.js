@@ -1,10 +1,22 @@
-export const getImage = async (img) => {
-    const puppyImageAPICall = await fetch("https://dog.ceo/api/breeds/image/random");
-    const puppyImage = puppyImageAPICall.json();
-    //let img = puppyImage.url;
-    console.log(puppyImage);
+// export const getImage = async () => {
+//     const puppyImageAPICall = await fetch("https://dog.ceo/api/breeds/image/random");
+//     const puppyImage = await puppyImageAPICall.json();
+//     let puppyImageData = puppyImage.result;
+//     console.log(puppyImageData);
 
-      };
+//       };
+
+
+export const getImage = async () => {
+    try {
+      const puppyImageAPICall = await fetch("https://dog.ceo/api/breeds/image/random");
+      const puppyImage = await puppyImageAPICall.json();
+      return puppyImage.message; // Assuming the image URL is in message property
+    } catch (error) {
+      console.error("Error fetching dog image:", error);
+      return ""; // Return a default value or handle the error as needed
+    }
+  };
 
 export const puppyList = [
     
@@ -19,6 +31,7 @@ export const puppyList = [
         { id: 2, title: "Lay Down" },
         { id: 3, title: "Jump through flaming hoop" },
       ],
+      img: getImage(),
     },
     {
       id: 2,
@@ -38,6 +51,7 @@ export const puppyList = [
       age: 6,
       ownerId: 2,
       tricks: [{ id: 1, title: "Sit" }],
+      img: getImage(),
     },
     {
       id: 4,
@@ -47,6 +61,7 @@ export const puppyList = [
       age: 4,
       ownerId: 2,
       tricks: [{ id: 2, title: "Lay Down" }],
+      img: getImage(),
     },
     {
       id: 5,
@@ -56,6 +71,7 @@ export const puppyList = [
       age: 7,
       ownerId: 3,
       tricks: [],
+      img: getImage(),
     },
     {
       id: 6,
@@ -65,6 +81,7 @@ export const puppyList = [
       age: 1,
       ownerId: 3,
       tricks: [],
+      img: getImage(),
     },
     {
       id: 7,
@@ -74,6 +91,7 @@ export const puppyList = [
       age: 2,
       ownerId: 3,
       tricks: [],
+      img: getImage(),
     },
   ];
 
