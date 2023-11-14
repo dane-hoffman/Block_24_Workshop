@@ -11,10 +11,10 @@ export const getImage = async () => {
     try {
       const puppyImageAPICall = await fetch("https://dog.ceo/api/breeds/image/random");
       const puppyImage = await puppyImageAPICall.json();
-      return puppyImage.message; // Assuming the image URL is in message property
+      return puppyImage.message; 
     } catch (error) {
       console.error("Error fetching dog image:", error);
-      return ""; // Return a default value or handle the error as needed
+      return "";
     }
   };
 
